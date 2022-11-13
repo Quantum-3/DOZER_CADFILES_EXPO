@@ -1,10 +1,11 @@
 #include <Arduino.h>
+#include "LiquidCrystal_I2C.h"
 #include "Keypad.h"
 #include "defs.h"
 
 
 
-
+LiquidCrystal_I2C lcd(0x27,16,2);
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 byte ledPin = 13; 
 
@@ -13,6 +14,7 @@ boolean ledPin_state;
 
 void setup(){
     Serial.begin(9600);
+    lcd.init();
     pinMode(ledPin, OUTPUT);              // Sets the digital pin as output.
     digitalWrite(ledPin, HIGH);           // Turn the LED on.
     ledPin_state = digitalRead(ledPin);   // Store initial LED state. HIGH when LED is on.

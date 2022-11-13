@@ -5,9 +5,6 @@
 
 
 
-
-
-
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //three columns
 char keys[ROWS][COLS] = {
